@@ -25,6 +25,25 @@ namespace PPE_ligue
             cb_categorie.Items.Add("Initiation");
             cb_categorie.Items.Add("Loisir");
             cb_categorie.Items.Add("Compétition");
+            
+            for(int i=9; i<23; i++)
+            {
+                cb_heureDebut.Items.Add(i);
+            }
+
+            for (int i = 9; i < 23; i++)
+            {
+                cb_heureFin.Items.Add(i);
+            }
+
+            cb_minuteDebut.Items.Add("00");
+            cb_minuteDebut.Items.Add("15");
+            cb_minuteDebut.Items.Add("30");
+            cb_minuteDebut.Items.Add("45");
+            cb_minuteFin.Items.Add("00");
+            cb_minuteFin.Items.Add("15");
+            cb_minuteFin.Items.Add("30");
+            cb_minuteFin.Items.Add("45");
         }
     }
 }
