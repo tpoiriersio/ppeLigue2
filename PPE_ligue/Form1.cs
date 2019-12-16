@@ -15,6 +15,16 @@ namespace PPE_ligue
         public Form1()
         {
             InitializeComponent();
+            cb_jour.Items.Add("Lundi");
+            cb_jour.Items.Add("Mardi");
+            cb_jour.Items.Add("Mercredi");
+            cb_jour.Items.Add("Jeudi");
+            cb_jour.Items.Add("Vendredi");
+            cb_jour.Items.Add("Samedi");
+            cb_jour.Items.Add("Dimanche");
+            cb_categorie.Items.Add("Initiation");
+            cb_categorie.Items.Add("Loisir");
+            cb_categorie.Items.Add("Compétition");
         }
     }
 }
