@@ -138,6 +138,7 @@
             this.bt_valider.TabIndex = 10;
             this.bt_valider.Text = "Valider la séance";
             this.bt_valider.UseVisualStyleBackColor = true;
+            this.bt_valider.Click += new System.EventHandler(this.bt_valider_Click);
             // 
             // label1
             // 
@@ -171,15 +172,15 @@
             this.cb_heureDebut.FormattingEnabled = true;
             this.cb_heureDebut.Location = new System.Drawing.Point(497, 248);
             this.cb_heureDebut.Name = "cb_heureDebut";
-            this.cb_heureDebut.Size = new System.Drawing.Size(121, 21);
+            this.cb_heureDebut.Size = new System.Drawing.Size(61, 21);
             this.cb_heureDebut.TabIndex = 14;
             // 
             // cb_minuteDebut
             // 
             this.cb_minuteDebut.FormattingEnabled = true;
-            this.cb_minuteDebut.Location = new System.Drawing.Point(668, 248);
+            this.cb_minuteDebut.Location = new System.Drawing.Point(587, 248);
             this.cb_minuteDebut.Name = "cb_minuteDebut";
-            this.cb_minuteDebut.Size = new System.Drawing.Size(121, 21);
+            this.cb_minuteDebut.Size = new System.Drawing.Size(57, 21);
             this.cb_minuteDebut.TabIndex = 15;
             // 
             // cb_heureFin
@@ -187,15 +188,15 @@
             this.cb_heureFin.FormattingEnabled = true;
             this.cb_heureFin.Location = new System.Drawing.Point(497, 312);
             this.cb_heureFin.Name = "cb_heureFin";
-            this.cb_heureFin.Size = new System.Drawing.Size(121, 21);
+            this.cb_heureFin.Size = new System.Drawing.Size(61, 21);
             this.cb_heureFin.TabIndex = 16;
             // 
             // cb_minuteFin
             // 
             this.cb_minuteFin.FormattingEnabled = true;
-            this.cb_minuteFin.Location = new System.Drawing.Point(668, 312);
+            this.cb_minuteFin.Location = new System.Drawing.Point(587, 312);
             this.cb_minuteFin.Name = "cb_minuteFin";
-            this.cb_minuteFin.Size = new System.Drawing.Size(121, 21);
+            this.cb_minuteFin.Size = new System.Drawing.Size(57, 21);
             this.cb_minuteFin.TabIndex = 17;
             // 
             // Form1

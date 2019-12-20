@@ -45,5 +45,19 @@ namespace PPE_ligue
             cb_minuteFin.Items.Add("30");
             cb_minuteFin.Items.Add("45");
         }
+
+        private void bt_valider_Click(object sender, EventArgs e)
+        {
+            string jour = cb_jour.Text;
+            string description = tb_descriptif.Text;
+            DateTime debut = dtp_debut.Value;
+            DateTime fin = dtp_fin.Value;
+            string categorie = cb_categorie.Text;
+
+            Sql sql = new Sql();
+            sql.insertSeance(jour, description, debut, fin, categorie);
+        }
+
+        // il faut rajouter l'heuure à la date de début et de fin
     }
 }
