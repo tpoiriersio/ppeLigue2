@@ -51,13 +51,59 @@ namespace PPE_ligue
             int resu = t.diffDates(dateD, dateF);
             int i = 0;
 
-            while(i<=resu)
+            while (i <= resu)
             {
-                string d = debut.Year + "-" + debut.Month + "-" + debut.Day  + " " + cb_heureDebut.Text + ":" + cb_minuteDebut.Text + ":00";
+                string d = debut.Year + "-" + debut.Month + "-" + debut.Day + " " + cb_heureDebut.Text + ":" + cb_minuteDebut.Text + ":00";
                 string f = debut.Year + "-" + debut.Month + "-" + debut.Day + " " + cb_heureFin.Text + ":" + cb_minuteFin.Text + ":00";
-                string jour = Convert.ToString(dtp_debut.Value.DayOfWeek);
                 string description = tb_descriptif.Text;
                 int categorie = cb_categorie.SelectedIndex + 1;
+
+                string jour = Convert.ToString(dtp_debut.Value.DayOfWeek);
+                if (jour == "Monday") {
+                    jour = "Lundi";
+                }
+                else
+                {
+                    if (jour == "Tuesday")
+                    {
+                        jour = "Mardi";
+                    }
+                    else
+                    {
+                        if (jour == "Wednesday")
+                        {
+                            jour = "Mercredi";
+                        }
+                        else
+                        {
+                            if (jour == "Thursday")
+                            {
+                                jour = "Jeudi";
+                            }
+                            else
+                            {
+                                if (jour == "Friday")
+                                {
+                                    jour = "Vendredi";
+                                }
+                                else
+                                {
+                                    if (jour == "Saturday")
+                                    {
+                                        jour = "Samedi";
+                                    }
+                                    else
+                                    {
+                                        if (jour == "Sunday")
+                                        {
+                                            jour = "Dimanche";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
 
                 Sql sql = new Sql();
                 sql.insertSeance(jour, description, d, f, categorie);
