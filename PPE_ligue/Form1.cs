@@ -48,16 +48,30 @@ namespace PPE_ligue
 
         private void bt_valider_Click(object sender, EventArgs e)
         {
-            string jour = cb_jour.Text;
-            string description = tb_descriptif.Text;
             DateTime debut = dtp_debut.Value;
             DateTime fin = dtp_fin.Value;
+
+            int jourDebut = debut.Day;
+            int moiDebut = debut.Month;
+            int anneeDebut = debut.Year;
+
+            int jourFin = fin.Day;
+            int moifin = fin.Month;
+            int anneeeFin = fin.Year;
+
+            int heureDebut = Convert.ToInt16(cb_heureDebut.Text);
+            int minuteDebut = Convert.ToInt16(cb_minuteDebut.Text);
+            int heureFin = Convert.ToInt16(cb_heureFin.Text);
+            int minuteFin = Convert.ToInt16(cb_minuteFin.Text);
+
+            string jour = cb_jour.Text;
+            string description = tb_descriptif.Text;
             string categorie = cb_categorie.Text;
+            var dateDebut = new DateTime(anneeDebut, moiDebut, jourDebut, heureDebut, minuteDebut, 00);
+            var dateFin = new DateTime(anneeeFin, moifin, jourFin, heureFin, minuteFin, 00);
 
             Sql sql = new Sql();
-            sql.insertSeance(jour, description, debut, fin, categorie);
+            sql.insertSeance(jour, description, dateDebut, dateFin, categorie);
         }
-
-        // il faut rajouter l'heuure à la date de début et de fin
     }
 }
