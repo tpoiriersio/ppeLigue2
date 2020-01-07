@@ -53,7 +53,7 @@ namespace PPE_ligue
 
             string d = debut.Year + "-" + debut.Month + "-" + debut.Day + " " + cb_heureDebut.Text + ":" + cb_minuteDebut.Text + ":00";
             string f = fin.Year + "-" + fin.Month + "-" + fin.Day + " " + cb_heureFin.Text + ":" + cb_minuteFin.Text + ":00";
-            string jour = cb_jour.Text;
+            string jour = Convert.ToString(dtp_debut.Value.DayOfWeek);
             string description = tb_descriptif.Text;
             int categorie = cb_categorie.SelectedIndex +1;
 
