@@ -44,14 +44,30 @@ namespace PPE_ligue
             DateTime debut = dtp_debut.Value;
             DateTime fin = dtp_fin.Value;
 
-            string d = debut.Year + "-" + debut.Month + "-" + debut.Day + " " + cb_heureDebut.Text + ":" + cb_minuteDebut.Text + ":00";
-            string f = fin.Year + "-" + fin.Month + "-" + fin.Day + " " + cb_heureFin.Text + ":" + cb_minuteFin.Text + ":00";
-            string jour = Convert.ToString(dtp_debut.Value.DayOfWeek);
-            string description = tb_descriptif.Text;
-            int categorie = cb_categorie.SelectedIndex +1;
+            string dateD = debut.Day + "-" + debut.Month + "-" + debut.Year;
+            string dateF = fin.Day + "-" + fin.Month + "-" + fin.Year;
 
-            Sql sql = new Sql();
-            sql.insertSeance(jour, description, d, f, categorie);
+            Date t = new Date();
+            int resu = t.diffDates(dateD, dateF);
+            int i = 0;
+
+            while(i<=resu)
+            {
+                string d = debut.Year + "-" + debut.Month + "-" + debut.Day  + " " + cb_heureDebut.Text + ":" + cb_minuteDebut.Text + ":00";
+                string f = debut.Year + "-" + debut.Month + "-" + debut.Day + " " + cb_heureFin.Text + ":" + cb_minuteFin.Text + ":00";
+                string jour = Convert.ToString(dtp_debut.Value.DayOfWeek);
+                string description = tb_descriptif.Text;
+                int categorie = cb_categorie.SelectedIndex + 1;
+
+                Sql sql = new Sql();
+                sql.insertSeance(jour, description, d, f, categorie);
+                
+                //MessageBox.Show(Convert.ToString(resu));
+                //MessageBox.Show(Convert.ToString(i));
+                i += 7;
+                debut = debut.AddDays(7);
+                fin = fin.AddDays(7);
+            }
         }
     }
 }
