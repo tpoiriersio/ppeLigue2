@@ -21,7 +21,7 @@ namespace PPE_ligue
             connexion = new MySqlConnection(connStr);
         }
 
-        public void insertSeance(string jour, string descriptif, string debut, string fin, string categorie)
+        public void insertSeance(string jour, string descriptif, string debut, string fin, int categorie)
         {
             string therequest = "INSERT INTO seance(`jour`,`descriptif`,`debut`,`fin`,`la_categorie`) VALUE ('" + jour + "','" + descriptif + "','" + debut.ToString() + "','" + fin.ToString() + "','" + categorie + "')";
             MySqlCommand request = new MySqlCommand(therequest, this.connexion);

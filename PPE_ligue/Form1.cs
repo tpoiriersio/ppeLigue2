@@ -55,8 +55,8 @@ namespace PPE_ligue
             string f = fin.Year + "-" + fin.Month + "-" + fin.Day + " " + cb_heureFin.Text + ":" + cb_minuteFin.Text + ":00";
             string jour = cb_jour.Text;
             string description = tb_descriptif.Text;
-            string categorie = cb_categorie.Text;
-            
+            int categorie = cb_categorie.SelectedIndex +1;
+
             Sql sql = new Sql();
             sql.insertSeance(jour, description, d, f, categorie);
         }
