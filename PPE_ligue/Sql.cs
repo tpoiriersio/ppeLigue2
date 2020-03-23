@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace PPE_ligue
 {
+   
     public class Sql
     {
-        private string IP = "172.19.0.3";
+        private string IP = "127.0.0.1";
         private string USER = "root";
-        private string PASSWORD = "0550002D";
+        private string PASSWORD = "";
         private string DATABASE = "ligue";
         private MySqlConnection connexion;
 
