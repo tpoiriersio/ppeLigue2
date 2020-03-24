@@ -98,8 +98,49 @@ namespace API.Models
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
+        public Moniteur utilisateurAutorise(string login, string mdp)
+        {
+            string requete = "select * from moniteur where email=" + login + "AND mdp=" + mdp;
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+            Moniteur c = new Moniteur(rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString());
+            rdr.Close();
+            return c;
+        }
+
         public void testConnexion()
         {
+            string messageDErreur;
+            bool lAccesAutorise = true;
+            if ((login.Text == "") || (motDePasse.Text == ""))
+            {
+                messageDErreur = "Veuillez rentrer un identifiant ou un mot de passe";
+                lAccesAutorise = false;
+            }
+
+            try
+            {
+                if (lAccesAutorise)
+                {
+                    utilisateurAutorise(login.Text, motDePasse.Text);
+                    if (utilisateurAutorise().Mail == login.Text && utilisateurAutorise().Mdp == motDePasse.Text)
+                    {
+                        messageDErreur = "Accès autorisé";
+                        lAccesAutorise = true;
+                    }
+                }
+                else
+                {
+                    messageDErreur = "Accès non autorisé";
+                    lAccesAutorise = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                messageDErreur = "Erreur lors de l'identification<br>" + ex.ToString();
+                lAccesAutorise = false;
+            }
 
         }
     }
