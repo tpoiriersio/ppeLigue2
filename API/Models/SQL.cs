@@ -50,6 +50,7 @@ namespace API.Models
         }
         public void deleteMoniteur(int i)
         {
+            deleteAnimerMoniteur(id);
             string requete = "delete from moniteur where id=" + i;
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
@@ -94,10 +95,30 @@ namespace API.Models
         }
         public void deleteSeance(int id, int moni)
         {
+            deleteAnimerSeance(id);
             string requete = "delete from proposer where id_seande=" + id + " AND id_moniteur=" + moni;
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
+
+
+        public void insertAnimer(int idSeance, int idMoniteur){
+            string requete = "insert into animer(id_seance, id_moniteur) VALUES (" + idSeance + ", " + idMoniteur + ")";
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            cmd.ExecuteNonQuery();
+        }
+        public void deleteAnimerSeance(int id){
+            string requete = "delete from animer where id_seance=" + id;
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            cmd.ExecuteNonQuery();
+        }
+        public void deleteAnimerMoniteur(){
+            string requete = "delete from animer where id_moniteur=" + id;
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            cmd.ExecuteNonQuery();
+        }
+
+
         public Moniteur utilisateurAutorise(string login, string mdp)
         {
             string requete = "select * from moniteur where email=" + login + "AND mdp=" + mdp;
@@ -108,7 +129,6 @@ namespace API.Models
             rdr.Close();
             return c;
         }
-
         public void testConnexion()
         {
             string messageDErreur;
