@@ -22,10 +22,6 @@ namespace PPE_ligue
             for(int i=9; i<23; i++)
             {
                 cb_heureDebut.Items.Add(i);
-            }
-
-            for (int i = 9; i < 23; i++)
-            {
                 cb_heureFin.Items.Add(i);
             }
 
@@ -108,8 +104,6 @@ namespace PPE_ligue
                 Sql sql = new Sql();
                 sql.insertSeance(jour, description, d, f, categorie);
                 
-                //MessageBox.Show(Convert.ToString(resu));
-                //MessageBox.Show(Convert.ToString(i));
                 i += 7;
                 debut = debut.AddDays(7);
                 fin = fin.AddDays(7);
