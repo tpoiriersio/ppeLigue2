@@ -48,10 +48,10 @@ namespace API.Models
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
-        public void deleteMoniteur(int i)
+        public void deleteMoniteur(int id)
         {
             deleteAnimerMoniteur(id);
-            string requete = "delete from moniteur where id=" + i;
+            string requete = "delete from moniteur where id=" + id;
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
@@ -112,7 +112,7 @@ namespace API.Models
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
-        public void deleteAnimerMoniteur(){
+        public void deleteAnimerMoniteur(int id){
             string requete = "delete from animer where id_moniteur=" + id;
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
