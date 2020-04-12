@@ -18,6 +18,9 @@ namespace API.Models
             conn.ConnectionString = myConnectionString;
             conn.Open();
         }
+
+        //-------Moniteur-------//
+
         public List<Moniteur> getAllMoniteurs()
         {
             List<Moniteur> lesMoniteurs = new List<Moniteur>();
@@ -55,14 +58,15 @@ namespace API.Models
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
-        public void up(int id, string mdp)
+        public void upMoniteur(int id, string mdp)
         {
             string requete = "update moniteur set mdp='" + mdp + "' where id=" + id;
             MySqlCommand cmd = new MySqlCommand(requete, conn);
             cmd.ExecuteNonQuery();
         }
 
-        //---Séance---
+        //-------Séance-------//
+
         public List<Seance> getAllSeance()
         {
             List<Seance> lesSeances = new List<Seance>();
@@ -101,6 +105,7 @@ namespace API.Models
             cmd.ExecuteNonQuery();
         }
 
+        //-------Animer-------//
 
         public void insertAnimer(int idSeance, int idMoniteur){
             string requete = "insert into animer(id_seance, id_moniteur) VALUES (" + idSeance + ", " + idMoniteur + ")";
@@ -118,6 +123,7 @@ namespace API.Models
             cmd.ExecuteNonQuery();
         }
 
+        //-------Connexion-------//
 
         public Moniteur utilisateurAutorise(string login, string mdp)
         {
@@ -133,6 +139,7 @@ namespace API.Models
         {
             string messageDErreur;
             bool lAccesAutorise = true;
+
             if ((login.Text == "") || (motDePasse.Text == ""))
             {
                 messageDErreur = "Veuillez rentrer un identifiant ou un mot de passe";
